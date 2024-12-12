@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Task List{% endblock %}
+{% block content %}
+<h1>Task List</h1>
+{% if tasks %}
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong> - {{ task.description }}
+                <a href="/taskmanager/{{ task.id }}/edit/">Edit</a>
+                <a href="/taskmanager/{{ task.id }}/delete/">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No tasks yet. <a href="/taskmanager/new/">Add a new task</a>.</p>
+{% endif %}
+
+<hr>
+<h2>Random Quote</h2>
+<p>"{{ quote }}" - {{ author }}</p>
+{% endblock %}
+
+
+
+
+
+
+
